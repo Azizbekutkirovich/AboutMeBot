@@ -22,6 +22,6 @@ This bot provides:
 2. Send one of the following commands:
    - `/start` – Welcome message
    - `🛈 Batafsil ma'lumot` – Who I am
-   - `📄 Rezyume` – My resume
-   - `📞 Bog'lanish uchun` – Contact
+   - `📄 Rezyume` – Click the button below to view my resume.
+   - `📞 Bog'lanish uchun` – Click here to contact me.
    - `🤖 Bot zakaz qilish` – To order your custom Telegram bot, simply click the button below.
