@@ -14,23 +14,18 @@ $userId = $message['from']['id'];
 switch ($text) {
 	case "/start":
 		start();
-		addUserPage("start");
 		break;
 	case "🛈 Batafsil ma'lumot":
 		detail();
-		changePage("detail");
 		break;
 	case "📄 Rezyume":
 		rezyume();
-		changePage("rezyume");
 		break;
 	case "📞 Bog'lanish uchun":
 		contact();
-		changePage("contact");
 		break;
 	case "🤖 Bot zakaz qilish":
 		zakazBot();
-		changePage("zakazBot");
 		break;
 	case "🔙 Ortga qaytish":
 		back();
@@ -58,24 +53,8 @@ switch ($text) {
 		break;
 }
 
-function changePage($newPage) {
-	global $pdo, $userId;
-	$query = $pdo->prepare("UPDATE userPage SET page = ? WHERE userId = ?");
-	$query->execute([$newPage, $userId]);
-}
-
-function getUserPage() {
-	global $userId, $pdo;
-	$query = $pdo->prepare("SELECT page FROM userPage WHERE userId = ?");
-	$query->execute([$userId]);
-	$data = $query->fetch(PDO::FETCH_ASSOC);
-	return $data['page'];
-}
-
 function back() {
-	$user_page = getUserPage();
 	home();
-	changePage("start");
 }
 
 function backButton() {
@@ -89,24 +68,6 @@ function backButton() {
 		"text" => "Ortga qaytish uchun pastdagi tugmani bosing",
 		"reply_markup" => $keyb
 	]);
-}
-
-function addUserPage($page) {
-	global $pdo, $userId;
-	if (!issetUserPage()) {
-		$query = $pdo->prepare("INSERT INTO userPage (userId, page) VALUES (?, ?)");
-		$query->execute([$userId, $page]);
-	} else {
-		changePage($page);
-	}
-}
-
-function issetUserPage() {
-	global $pdo, $userId;
-	$query = $pdo->prepare("SELECT * FROM userPage WHERE userId = ?");
-	$query->execute([$userId]);
-	$row = $query->fetch(PDO::FETCH_ASSOC);
-	return $row !== false;
 }
 
 function start() {
