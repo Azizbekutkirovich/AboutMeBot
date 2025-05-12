@@ -3,10 +3,6 @@
 require_once "Telegram.php";
 require_once "db.php";
 
-
-// $query = $pdo->prepare("INSERT INTO zakaz (user_id, phone_Number) VALUES (?, ?)");
-// $query->execute([5667777776, "+998933152370"]);
-
 $telegram = new Telegram('7712252153:AAE9ZG7gCLWT3E3jJCnGOclp82-3OFjO2So');
 
 $data = $telegram->getData();
