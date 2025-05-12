@@ -3,7 +3,7 @@
 require_once "Telegram.php";
 require_once "db.php";
 
-$telegram = new Telegram('7712252153:AAE9ZG7gCLWT3E3jJCnGOclp82-3OFjO2So');
+$telegram = new Telegram('8039036628:AAGpZTK49835NAhi0slTYlGil-lrFclFx3g');
 
 $data = $telegram->getData();
 $message = $data['message'];
