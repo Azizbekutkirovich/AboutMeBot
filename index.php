@@ -20,7 +20,7 @@ switch ($text) {
 	case "📄 Rezyume":
 		rezyume();
 		break;
-	case "📞 Bog'lanish uchun":
+	case "☎️ Bog'lanish uchun":
 		contact();
 		break;
 	case "🔙 Ortga qaytish":
@@ -64,7 +64,7 @@ function home() {
 	global $chat_id, $telegram;
 	$option = array(
 	    array($telegram->buildKeyboardButton("🛈 Batafsil ma'lumot"), $telegram->buildKeyboardButton("📄 Rezyume")),
-	    array($telegram->buildKeyboardButton("📞 Bog'lanish uchun")));
+	    array($telegram->buildKeyboardButton("☎️ Bog'lanish uchun")));
     $keyb = $telegram->buildKeyBoard($option, true, true);
     $content = ["chat_id" => $chat_id, "text" => "Qanday ma'lumot kerak?", "reply_markup" => $keyb];
 	$telegram->sendMessage($content);
