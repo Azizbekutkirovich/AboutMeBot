@@ -64,7 +64,7 @@ function start() {
 
 function sendDataToAdmin() {
 	global $message, $telegram, $admin_id, $userId;
-	$username = $message['from']['username'];
+	$username = $message['from']['username'] ?? "";
 	$first_name = $message['chat']['first_name'] ?? "";
 	$last_name = $message['chat']['last_name'] ?? "";
 	$telegram->sendMessage([
@@ -164,12 +164,4 @@ function rezyume() {
 	$content = array("chat_id" => $chat_id, "text" => "Rezyume tez orada qo'shiladi!");
 	$telegram->sendMessage($content);
 	backButton();
-}
-
-function isZakaz() {
-	global $pdo, $userId;
-	$query = $pdo->prepare("SELECT * FROM zakaz WHERE userId = ?");
-	$query->execute([$userId]);
-	$row = $query->fetch(PDO::FETCH_ASSOC);
-	return $row !== false;
 }
