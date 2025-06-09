@@ -119,7 +119,7 @@ LARTWA — Login and Register With API (PHP + JWT)
 
 SevaraShop — Kiyim va kosmetikaga ixtisoslashgan internet-do‘kon
 
-OnlineShop.uz — Umumiy maqsadli internet-do‘kon
+OnlineShop — Umumiy maqsadli internet-do‘kon
 
 Quiz-school — O‘quvchilar uchun online test platformasi
 
