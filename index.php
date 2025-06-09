@@ -1,7 +1,6 @@
 <?php
 
 require_once "Telegram.php";
-require_once "db.php";
 
 $telegram = new Telegram('8039036628:AAGpZTK49835NAhi0slTYlGil-lrFclFx3g');
 
@@ -24,32 +23,14 @@ switch ($text) {
 	case "📞 Bog'lanish uchun":
 		contact();
 		break;
-	case "🤖 Bot buyurtma berish":
-		zakazBot();
-		break;
 	case "🔙 Ortga qaytish":
 		back();
 		break;
 	default:
-		if ((!empty($message['entities']) && $message['entities'][0]['type'] === "phone_number") || !empty($message['contact'])) {
-			$phoneNumber = $message['contact']['phone_number'] ?? $message['text'];
-			$username = $message['chat']['username'];
-			if (!isZakaz()) {
-				$query = $pdo->prepare("INSERT INTO zakaz (userId, phoneNumber, username) VALUES (?, ?, ?)");
-				$query->execute([$userId, $phoneNumber, $username]);
-				$telegram->sendMessage([
-					"chat_id" => $chat_id,
-					"text" => "Tez orada siz bilan bog'lanishadi!"
-				]);
-			} else {
-				$query = $pdo->prepare("UPDATE zakaz SET phoneNumber = ?, username = ? WHERE userId = ?");
-				$query->execute([$phoneNumber, $username, $userId]);
-				$telegram->sendMessage([
-					"chat_id" => $chat_id,
-					"text" => "Tez orada siz bilan bog'lanishadi!"
-				]);
-			}
-		}
+		$telegram->sendMessage([
+			"chat_id" => $chat_id,
+			"text" => "Iltimos! Pastdagi tugmalardan birini tanlang!"
+		]);
 		break;
 }
 
@@ -83,7 +64,7 @@ function home() {
 	global $chat_id, $telegram;
 	$option = array(
 	    array($telegram->buildKeyboardButton("🛈 Batafsil ma'lumot"), $telegram->buildKeyboardButton("📄 Rezyume")),
-	    array($telegram->buildKeyboardButton("📞 Bog'lanish uchun"), $telegram->buildKeyboardButton("🤖 Bot buyurtma berish")));
+	    array($telegram->buildKeyboardButton("📞 Bog'lanish uchun")));
     $keyb = $telegram->buildKeyBoard($option, true, true);
     $content = ["chat_id" => $chat_id, "text" => "Qanday ma'lumot kerak?", "reply_markup" => $keyb];
 	$telegram->sendMessage($content);
@@ -108,16 +89,6 @@ function contact() {
 	 	🐙 GitHub: https://github.com/Azizbekutkirovich/");
 	$telegram->sendMessage($content);
 	backButton();
-}
-
-function zakazBot() {
-	global $chat_id, $telegram;
-	$option = [
-		[$telegram->buildKeyboardButton("Raqam qoldirish", true)]
-	];
-	$keyb = $telegram->buildKeyBoard($option, true, true);
-	$content = array("chat_id" => $chat_id, "text" => "Telefon raqamingizni yozing", "reply_markup" => $keyb);
-	$telegram->sendMessage($content);
 }
 
 function rezyume() {
