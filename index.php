@@ -55,7 +55,7 @@ function start() {
 	global $chat_id, $telegram, $message;
 	$first_name = $message['chat']['first_name'] ?? "";
 	$last_name = $message['chat']['last_name'] ?? "";
-	$content = array('chat_id' => $chat_id, 'text' => "Assalomu aleykum $last_name $first_name. Men dasturchi Safarov Azizbek haqida ma'lumot bera olaman!");
+	$content = array('chat_id' => $chat_id, 'text' => "Assalomu aleykum $last_name $first_name. Men dasturchi Safarov Azizbek @anonym_811 haqida ma'lumot bera olaman!");
 	$telegram->sendMessage($content);
 	home();
 }
