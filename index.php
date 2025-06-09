@@ -89,7 +89,58 @@ function home() {
 
 function detail() {
 	global $chat_id, $telegram;
-	$content = array('chat_id' => $chat_id, 'text' => "Batafsil ma'lumot uchun havola: <a href='https://telegra.ph/Biz-haqimizda-05-06'>Havola</a>", "parse_mode" => "html");
+	$content = array('chat_id' => $chat_id, 'text' => "Bot asoschisi: @anonym_811
+F.I.SH: Safarov Azizbek O'tkir o'g'li
+Qisqacha ma'lumot:
+2007-yil 25-iyunda Navoiy viloyati, Zarafshon shahrida tug‘ilgan. Dasturlashga bo‘lgan qiziqishi yoshligidan boshlangan. Asosan PHP dasturlash tilida ishlaydi va REST API, JWT autentifikatsiya tizimlari, hamda web-ilovalar yaratishda tajribaga ega.
+2023-yildan boshlab mustaqil dasturchi sifatida turli veb-loyihalar ustida ishlay boshlagan. U sun’iy intellekt texnologiyalariga qiziqadi va bu yo‘nalishda o‘z bilimlarini kengaytirib boradi.
+
+Ko‘nikmalari:
+
+PHP (sof PHP va Yii2 framework)
+
+PHP OOP (Obyektga yo'naltirilgan dasturlash)
+
+MySQL
+
+REST API
+
+JWT autentifikatsiya
+
+Git va GitHub
+
+Docker asoslari
+
+Telegram bot yaratish (PHP orqali)
+
+Hozirgi loyihalari:
+
+LARTWA — Login and Register With API (PHP + JWT)
+
+SevaraShop — Kiyim va kosmetikaga ixtisoslashgan internet-do‘kon
+
+OnlineShop.uz — Umumiy maqsadli internet-do‘kon
+
+Quiz-school — O‘quvchilar uchun online test platformasi
+
+AboutMeBot — Telegram bot (Render.com orqali deploy qilingan)
+
+Bu loyihalar barchasi GitHub profilida mavjud
+GitHub profiliga havola: https://github.com/Azizbekutkirovich/
+
+Kelajak rejasi:
+
+Sun’iy intellekt bilan integratsiyalashgan web-ilovalar yaratish
+
+PHP framework’larni chuqur o‘rganish
+
+Full Stack Dasturchi sifatida rivojlanish
+
+Bog'lanish uchun:
+	☎️ Telefon: +998(93)315-23-70
+	✉ Email: azizbek250607@gmail.com
+	Instagram: https://www.instagram.com/az1z_0607/
+	🐙 GitHub: https://github.com/Azizbekutkirovich/");
 	$telegram->sendMessage($content);
 	backButton();
 }
@@ -97,9 +148,9 @@ function detail() {
 function contact() {
 	global $chat_id, $telegram;
 	$content = array('chat_id' => $chat_id, 'text' => "
-		📍 Адрес: Toshkent shahar Yangi hayot tumani Ibrat 2-tor ko'cha 38
+		📍 Manzil: Toshkent shahar Yangi hayot tumani Ibrat 2-tor ko'cha 38
 
-	 	📞 Телефон: +998(93)315-23-70
+	 	☎️ Telefon: +998(93)315-23-70
 
 	 	✉ Email: azizbek250607@gmail.com
 
